@@ -27,7 +27,11 @@ Some car predictions;
 
 ## Line Detection Results
 Vehicle trying to center the strip.<br> 
-![Ekran görüntüsü 2023-04-02 161745](https://user-images.githubusercontent.com/129625706/229355433-aab0bbc2-2eec-4f39-bc31-86cdb6fb1261.png)
+![Ekran görüntüsü 2023-04-02 161745](https://user-images.githubusercontent.com/129625706/229355433-aab0bbc2-2eec-4f39-bc31-86cdb6fb1261.png)<br>
+
+Also traffic lights detections achieved succesfully.
+![resim_2023-04-02_185938212](https://user-images.githubusercontent.com/129625706/229364476-4002fe8a-a403-40c1-88f3-d4b21fa2bc31.png)
+
 
 ## References
 Date base provided by;<br>
