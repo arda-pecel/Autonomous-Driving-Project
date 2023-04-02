@@ -5,7 +5,7 @@ For object detection train Augelab Studio is used which is an open source image 
 ## In the next update:<br>
 Distance measurement with other cars will be added.(horizontal and vertical)<br>
 Other cars velocity and speeds will be considered in the strip changes.<br>
-In current situation software catchs only one car in the screen. After this is fixed new update will be released.
+In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly.
 
 ## Car Detection Results
 16.185 images processed for car detections with more than 2000 iterations.<br> 
