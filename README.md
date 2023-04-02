@@ -1,7 +1,7 @@
 # Autonomous-Driving-Project
 Autonomous driving project is a control software developing with Python and can be used for autonomous car's.<br>
 For object detection train Augelab Studio is used which is a open source image processing compiler. Dataset contains 16.185 images of 196 classes of cars.
-
+Raspberry pi 4 is used for communication with Augelab Studio.
 
 Date base provided by;<br>
  3D Object Representations for Fine-Grained Categorization
