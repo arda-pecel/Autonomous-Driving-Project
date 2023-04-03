@@ -11,6 +11,8 @@ In current situation software catchs only one car in the screen. Also distance m
 https://user-images.githubusercontent.com/129625706/229360308-af5c0657-c3ca-41b0-83b0-4fa060f33281.mp4
 
 
+## Approach
+All object detections and measurements are happened in Augelab Studio. Due to other car's position, speed and acceleration data's, decisions are made in Python code. Code controls 2 different engines located in front wheels.
 
 ## Car Detection Results
 16.185 images processed for car detections with more than 2000 iterations.<br> 
