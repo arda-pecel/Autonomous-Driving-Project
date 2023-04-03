@@ -1,9 +1,21 @@
-#variables
-h_distance; #horizontal distance with front car. This value comes from Augelab Studio
-v_distance; #vertical distance with afront car. This value comes from Augelab Studio
-h_distanceback; #horizontal distance with rear car. This value comes from Augelab Studio
-v_distanceback; #vertical distance with rear car. This value comes from Augelab Studio
-split_width; #line width. This value comes from Augelab Studio
+#variables. This values come from Augelab Studio
+
+import pandas as pd
+
+# Read the CSV file and store it in a variable
+h_distance = pd.read_csv('data1.csv') #horizontal distance with front car. 
+v_distance = pd.read_csv('data2.csv') #vertical distance with afront car.
+h_distanceback = pd.read_csv('data12.csv') #horizontal distance with rear car.
+v_distanceback = pd.read_csv('data23.csv') #vertical distance with rear car.
+
+
+import json
+
+# Read the JSON file and store it in a variable
+with open('split_width.json', 'r') as f:
+    split_width = json.load(f)
+
+    
 
 #determination of velocity ***THIS PART OF THE CODE DOES NOT WORK PROPERLY. IN NEXT UPDATE SECOND CODE WILL BE TRIED***
 
@@ -138,10 +150,10 @@ while(1):
  # split change code
 
         def split_change():
-        if v_distance < 1000 && 0 > h_distance < 1000:
-    engineleft && engineright == turn_left()
-        elif 0 < v_distance < 1000 && 0 > h_distance > -1000:
-    engineleft && engineright == turn_right()
+            if v_distance < 1000 && 0 > h_distance < 1000:
+            engineleft && engineright == turn_left()
+            elif 0 < v_distance < 1000 && 0 > h_distance > -1000:
+            engineleft && engineright == turn_right()
 
     
 # turn right and left code on split change 
