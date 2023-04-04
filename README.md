@@ -20,7 +20,7 @@ https://user-images.githubusercontent.com/129625706/229726333-0eb4ba89-2025-471c
 
 
 ## Approach
-All object detections and measurements are happened in Augelab Studio. Due to other car's position, speeds and acceleration calculations and decisions are made in Python code. Code controls 2 different engines located in front wheels.
+All object detections and measurements are happened in Augelab Studio. Due to other car's position, speeds and acceleration calculations and decisions are made in Python code. Code controls 2 different engines located in front wheels.(Working for 4 engines control)
 
 ## Car Detection Results
 16.185 images processed for car detections with more than 2000 iterations.<br> 
