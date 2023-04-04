@@ -49,5 +49,6 @@ Date base provided by;<br>
        Jonathan Krause, Michael Stark, Jia Deng, Li Fei-Fei
        4th IEEE Workshop on 3D Representation and Recognition, at ICCV 2013 (3dRR-13). Sydney, Australia. Dec. 8, 2013.
  
- Driving video provided by;<br>
+ Driving videos provided by;<br>
  https://www.youtube.com/watch?v=fkps18H3SXY
+ https://www.youtube.com/watch?v=40xZVEFVBuE
