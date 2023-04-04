@@ -318,4 +318,130 @@ while True:
             steering = 0
     send_control_signals(my_speed, steering)
     time.sleep(0.1)  # Pause for a short time before checking other cars again
+            
+            
+import random
+
+class Car:
+    def __init__(self, pos, speed):
+        self.pos = pos
+        self.speed = speed
+        self.accel = 0
+    
+    def update_pos(self, dt):
+        self.pos += self.speed * dt + 0.5 * self.accel * dt ** 2
+        self.speed += self.accel * dt
+    
+    def update_accel(self, other_cars):
+        # determine the desired acceleration based on the other cars' positions and speeds
+        desired_accel = 0
+        if len(other_cars) > 0:
+            closest_car = min(other_cars, key=lambda car: abs(car.pos - self.pos))
+            distance_to_closest_car = closest_car.pos - self.pos
+            relative_speed_to_closest_car = closest_car.speed - self.speed
+            if distance_to_closest_car < 30:
+                # brake if too close to the closest car
+                desired_accel = -0.5 * (relative_speed_to_closest_car ** 2) / distance_to_closest_car
+            else:
+                # accelerate to reach desired speed
+                desired_speed = min(closest_car.speed - 10, 30)
+                desired_accel = (desired_speed - self.speed) / dt
+        
+        # add some noise to the acceleration to simulate human driving behavior
+        self.accel = desired_accel + random.uniform(-1, 1)
+        self.accel = max(-2, min(self.accel, 2))
+    
+    def update_speed(self, desired_speed):
+        # adjust the speed based on the desired acceleration and a maximum acceleration limit
+        max_accel = 1
+        self.accel = max(-max_accel, min(self.accel, max_accel))
+        self.speed += self.accel * dt
+        self.speed = max(0, min(self.speed, desired_speed))
+    
+    def change_lane(self, other_cars):
+        # change lane randomly with a probability of 0.1%
+        if random.random() < 0.001:
+            self.pos += random.choice([-10, 10])
+    
+# initialize the cars
+num_cars = 10
+cars = [Car(i * 50, random.uniform(20, 30)) for i in range(num_cars)]
+
+# simulate the cars for 1000 seconds
+dt = 0.1
+for t in range(10000):
+    for i, car in enumerate(cars):
+        other_cars = [c for j, c in enumerate(cars) if j != i]
+        car.update_accel(other_cars)
+        car.update_speed(30)
+        car.update_pos(dt)
+        car.change_lane(other_cars)
+    
+ 
+#Considering acceleration           
+            
+import numpy as np
+
+class Car:
+    def __init__(self, pos, speed, acc):
+        self.pos = pos   # current position of the car
+        self.speed = speed   # current speed of the car
+        self.acc = acc   # current acceleration of the car
+
+    def update(self, dt):
+        self.speed += self.acc * dt   # update the speed based on the acceleration
+        self.pos += self.speed * dt   # update the position based on the speed
+
+class Controller:
+    def __init__(self, car, others, dt, target_speed):
+        self.car = car   # the controlled car
+        self.others = others   # the other cars
+        self.dt = dt   # time step
+        self.target_speed = target_speed   # target speed of the controlled car
+
+    def update(self):
+        # Compute the acceleration of the controlled car based on the positions and speeds of the other cars
+        acc = self.compute_acceleration()
+
+        # Limit the acceleration to avoid abrupt changes in speed
+        max_acc = 5.0  # maximum acceleration
+        min_acc = -5.0  # maximum deceleration
+        acc = max(min(acc, max_acc), min_acc)
+
+        # Update the acceleration of the controlled car
+        self.car.acc = acc
+
+        # Update the position and speed of the controlled car
+        self.car.update(self.dt)
+
+    def compute_acceleration(self):
+        # Compute the position and speed differences between the controlled car and the other cars
+        pos_diff = [other.pos - self.car.pos for other in self.others]
+        speed_diff = [other.speed - self.car.speed for other in self.others]
+
+        # Compute the distance and relative speed between the controlled car and the other cars
+        distance = np.sqrt(np.sum(np.square(pos_diff), axis=1))
+        rel_speed = np.array(speed_diff) - self.car.speed
+
+        # Compute the time to collision between the controlled car and the other cars
+        ttc = distance / (rel_speed + 1e-5)
+
+        # Compute the desired speed based on the target speed and the distance to the nearest car
+        min_distance = np.min(distance)
+        desired_speed = self.target_speed - min_distance / 10.0
+
+        # Compute the desired acceleration based on the desired speed and the current speed of the controlled car
+        acc = (desired_speed - self.car.speed) / self.dt
+
+        # Compute the lateral deviation of the controlled car from the center of the lane
+        lateral_deviation = self.car.pos[1]
+
+        # If there is a car in front of the controlled car and the lateral deviation is too large,
+        # adjust the acceleration to move the car towards the center of the lane
+        if min_distance < 50.0 and abs(lateral_deviation) > 1.0:
+            acc += np.sign(lateral_deviation) * 1.0
+
+        return acc
+
+
 
