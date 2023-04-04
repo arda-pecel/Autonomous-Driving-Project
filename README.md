@@ -11,6 +11,13 @@ In current situation software catchs only one car in the screen. Also distance m
 https://user-images.githubusercontent.com/129625706/229360308-af5c0657-c3ca-41b0-83b0-4fa060f33281.mp4
 
 
+
+
+https://user-images.githubusercontent.com/129625706/229726333-0eb4ba89-2025-471c-807e-5e263b607dff.mp4
+
+
+
+
 ## Approach
 All object detections and measurements are happened in Augelab Studio. Due to other car's position, speeds and acceleration calculations and decisions are made in Python code. Code controls 2 different engines located in front wheels.
 
