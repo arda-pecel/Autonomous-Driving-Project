@@ -73,6 +73,15 @@ last_pos = other_car_positions
 last_time = current_time
     
     
+# Simulate getting positions and speeds of other cars from Augelab Studio
+def get_other_cars():
+    return [{'position': h_distance, v_distance, 'speed': speed}
+
+# Simulate sending control signals to adjust car's speed and steering
+def send_control_signals(speed, steering):
+    print(f'Speed: {speed}, Steering: {steering}')    
+     
+
 #motor control
 
 import RPi.GPIO as GPIO          
@@ -227,8 +236,9 @@ else:
     continue
     
 
-# improve, decrease speed on normal driving
+# increase, decrease speed on normal driving
 
+def my_speed():           
 if velocity>100:
     if abs(h_distance) && v_distance > 1000:
     p.ChangeDutyCycle(50)
@@ -280,14 +290,32 @@ else:
         temp1=1
         x='s'
         break
-
-    
-    
-
-
-
-
-    
         
 
-    
+#This code should be also tried for speed control.
+
+while True:
+    other_cars = get_other_cars()
+    # Assuming your own car is at position 0 with an initial speed of 0
+    my_position = 0
+    my_speed = 0
+    for car in other_cars:
+        relative_position = car['position'] - my_position
+        relative_speed = car['speed'] - my_speed
+        # Decide whether to increase or decrease speed based on relative position and speed
+        if relative_position > 50:
+            my_speed += 5
+        elif relative_position < 30:
+            my_speed -= 5
+        # Decide whether to change lanes based on relative position and speed
+        if relative_position < 10 and relative_speed < 0:
+            # Change lanes to the left
+            steering = -1
+        elif relative_position > 10 and relative_speed > 0:
+            # Change lanes to the right
+            steering = 1
+        else:
+            steering = 0
+    send_control_signals(my_speed, steering)
+    time.sleep(0.1)  # Pause for a short time before checking other cars again
+
