@@ -6,6 +6,7 @@ For object detection train Augelab Studio is used which is an open source image 
 Strip positions will be checked after strip changes.<br>
 Other cars velocity, positions and acceleration considered in the strip changes.<br>
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly.<br>
+Test code has some repetitive functions and has to be optimized.
 
 
 https://user-images.githubusercontent.com/129625706/229360308-af5c0657-c3ca-41b0-83b0-4fa060f33281.mp4
