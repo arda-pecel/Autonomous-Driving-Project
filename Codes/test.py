@@ -43,8 +43,8 @@ def distance(p1, p2):
 # set initial values
 last_pos = None
 last_time = None
-other_car_positions = [(x1, y1), (x2, y2), ...] # list of positions of other cars. This values will be getted from Augelab Studio.
-other_car_speeds = [v1, v2, ...] # list of speeds of other cars. This values will be getted from Augelab Studio.
+other_car_positions = [(x1, y1), (x2, y2), (x3, y3), (x4, y4), (x5, y5), (x6, y6)] # list of positions of other cars. This values will be getted from Augelab Studio.
+other_car_speeds = [v1, v2, v3, v4, v5, v6] # list of speeds of other cars. This values will be getted from Augelab Studio.
 
 # get current position and time
 current_pos = (my_pos_x, my_pos_y) # your car's current position
