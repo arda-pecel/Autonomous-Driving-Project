@@ -4,7 +4,7 @@ For object detection train Augelab Studio is used which is an open source image 
 6 cameras should working together for position specification. For car detection 6 cameras are active but for line detection just 2 are enough. Raspberry pi 4 is used for communication with Augelab Studio and getting location informations.<br><br>
 ## Updates:<br>
 Strip positions will be checked after strip changes.<br>
-Other cars velocity and positions considered in the strip changes.<br>
+Other cars velocity, positions and acceleration considered in the strip changes.<br>
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly.<br>
 
 
