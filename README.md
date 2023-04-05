@@ -19,11 +19,6 @@ https://user-images.githubusercontent.com/129625706/229360308-af5c0657-c3ca-41b0
 
 
 
-https://user-images.githubusercontent.com/129625706/229726333-0eb4ba89-2025-471c-807e-5e263b607dff.mp4
-
-
-
-
 
 
 https://user-images.githubusercontent.com/129625706/230077784-2dff0fda-96fd-4861-bde1-69a0b92b69d0.mp4
