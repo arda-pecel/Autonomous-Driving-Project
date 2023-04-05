@@ -442,6 +442,52 @@ class Controller:
             acc += np.sign(lateral_deviation) * 1.0
 
         return acc
+   
+            
+# determine cars in opposite line     
+            
+import cv2
+
+# Define the minimum and maximum areas for car detection
+min_area = 100
+max_area = 5000
+
+#input image
+img = cv2.imread("camera_feed.jpg")
+
+
+# Detect contours in the front image
+front_gray = cv2.cvtColor(front_img, cv2.COLOR_BGR2GRAY)
+_, front_thresh = cv2.threshold(front_gray, 100, 255, cv2.THRESH_BINARY)
+front_contours, _ = cv2.findContours(front_thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+# Detect contours in the back image
+back_gray = cv2.cvtColor(back_img, cv2.COLOR_BGR2GRAY)
+_, back_thresh = cv2.threshold(back_gray, 100, 255, cv2.THRESH_BINARY)
+back_contours, _ = cv2.findContours(back_thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+# Combine the front and back contours into a single list
+all_contours = front_contours + back_contours
+
+# Loop over all the detected contours and check if they meet the size criteria
+for contour in all_contours:
+    area = cv2.contourArea(contour)
+    if area < min_area or area > max_area:
+        continue
+    
+    # Get the bounding box of the contour
+    x, y, w, h = cv2.boundingRect(contour)
+    
+    # Calculate the centroid of the contour
+    cx = x + w/2
+    cy = y + h/2
+    
+    car_center_x = img.shape[1] / 2  # Assuming the car is driving in the center of the image
+    if cx < car_center_x - w/2 or cx > car_center_x + w/2:
+        print("Car in opposite lane detected at ({}, {})".format(cx, cy))
+    else:
+        print("Car in your lane detected at ({}, {})".format(cx, cy))
+
 
 
 
