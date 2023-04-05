@@ -488,6 +488,46 @@ for contour in all_contours:
     else:
         print("Car in your lane detected at ({}, {})".format(cx, cy))
 
+          
+
+# Initialize the video camera
+cap = cv2.VideoCapture(0)
+
+while True:
+    # Read in a frame from the video stream
+    ret, frame = cap.read()
+
+    # Perform object detection on the frame
+    
+    # Checking red traffic lights
+    if red_light_detected:
+        # Slowly stop the vehicle
+        for i in range(10):
+            slow_down()
+            time.sleep(0.1)
+            
+    # Check if a green traffic light is detected and there are no vehicles in front of you
+    if green_light_detected and no_vehicle_in_front:
+        # Increase the speed of the vehicle step by step
+        for i in range(10):
+            speed_up()
+            time.sleep(0.1)
+    
+    # Check if there are any vehicles in front of you while waiting at a red light
+    if red_light_detected and vehicle_in_front:
+        # Stop the vehicle if a vehicle is detected in front
+        stop()
+            
+    # Display the video stream with the object detection overlay
+    cv2.imshow("Video Stream", frame)
+    
+    # Exit the program if the 'q' key is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the video camera and close all windows
+cap.release()
+cv2.destroyAllWindows()
 
 
 
