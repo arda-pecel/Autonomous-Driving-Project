@@ -9,6 +9,8 @@ Other cars velocity, positions and acceleration considered in the strip changes.
 
 System can seperate are cars in our or in opposite line.<br>
 
+Red lights detected and vehicle moves due to traffic lights.<br>
+
 Test code has some repetitive functions and has to be optimized.
 
 
