@@ -3,6 +3,8 @@ Image Compressor method added for reduce memory usage on computer. This method u
 
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly. (some problems at dark colour cars for night drivings) <br>
 
+It does not effect the control system but system can not seperate moving and parking cars.<br>
+
 Test code still has some repetitive functions.
 
 ## V0.1 Update:<br>
