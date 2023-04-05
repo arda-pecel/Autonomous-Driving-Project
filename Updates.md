@@ -1,3 +1,6 @@
+## V0.3 Update:<br>
+Cameras communicate with each other for detect objects.
+
 ## V0.2 Update:<br>
 Image Compressor method added for reduce memory usage on computer. This method uses linear algebra to compress image.
 
