@@ -6,6 +6,7 @@ For object detection train Augelab Studio is used which is an open source image 
 Image Compressor method added for reduce memory usage on computer. This method uses linear algebra to compress image.<br>
 Other cars velocity, positions and acceleration considered in the strip changes.<br>
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly. (some problems at dark colour cars for night drivings) <br>
+It does not effect the control system but system can not seperate moving and parking cars.<br>
 Test code has some repetitive functions and has to be optimized.
 
 
