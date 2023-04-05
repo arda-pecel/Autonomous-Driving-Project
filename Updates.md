@@ -12,4 +12,6 @@ Strip positions will be checked after strip changes.<br>
 
 Other cars velocity, positions and acceleration considered in the strip changes. (still have some problems)<br>
 
+System can seperate are cars in our or in opposite line.<br>
+
 Test code has some repetitive functions and has to be optimized.
