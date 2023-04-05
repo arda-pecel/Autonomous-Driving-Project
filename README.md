@@ -24,6 +24,14 @@ https://user-images.githubusercontent.com/129625706/229726333-0eb4ba89-2025-471c
 
 
 
+
+
+https://user-images.githubusercontent.com/129625706/230077784-2dff0fda-96fd-4861-bde1-69a0b92b69d0.mp4
+
+
+
+
+
 ## Approach
 All object detections and measurements are happened in Augelab Studio. Due to other car's position, speeds and acceleration calculations and decisions are made in Python code. Code controls 2 different engines located in front wheels. (Still working for 4 engines control vehicle which does not have differential in the system)
 
