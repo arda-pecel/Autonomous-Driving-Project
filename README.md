@@ -3,7 +3,7 @@ Autonomous driving project is an open source control software started at Septemb
 For object detection train Augelab Studio is used which is an open source image processing compiler. Dataset contains 16.185 images of 196 classes of cars.<br>
 6 cameras should working together for position specification. For car detection 6 cameras are active but for line detection just 2 are enough. Raspberry pi 4 is used for communication with Augelab Studio and getting location informations.<br><br>
 ## Latest Updates<br>
-Strip positions will be checked after strip changes.<br>
+Image Compressor method added for reduce memory usage on computer. This method uses linear algebra to compress image.<br>
 Other cars velocity, positions and acceleration considered in the strip changes.<br>
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly. (some problems at dark colour cars for night drivings) <br>
 Test code has some repetitive functions and has to be optimized.
