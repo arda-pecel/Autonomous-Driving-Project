@@ -6,7 +6,7 @@ For object detection train Augelab Studio is used which is an open source image 
 ## Approach
 All object detections and measurements are happened in Augelab Studio. Due to other car's position, speeds and acceleration calculations and decisions are made in Python code. Code controls 2 different engines located in front wheels. (Still working for 4 engines control vehicle which does not have differential in the system)
 
-## Latest Updates<br>
+## With V0.3 Update<br>
 Image Compressor method added for reduce memory usage on computer. This method uses linear algebra to compress image.<br>
 
 Other cars velocity, positions and acceleration considered in the strip changes. (still have some problems but software can seperate parking cars)<br>
