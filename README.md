@@ -4,9 +4,13 @@ For object detection train Augelab Studio is used which is an open source image 
 6 cameras should working together for position specification. For car detection 6 cameras are active but for line detection just 2 are enough. Raspberry pi 4 is used for communication with Augelab Studio and getting location informations.<br><br>
 ## Latest Updates<br>
 Image Compressor method added for reduce memory usage on computer. This method uses linear algebra to compress image.<br>
+
 Other cars velocity, positions and acceleration considered in the strip changes.<br>
+
 In current situation software catchs only one car in the screen. Also distance measurement between other cars does not working properly. (some problems at dark colour cars for night drivings) <br>
+
 It does not effect the control system but system can not seperate moving and parking cars.<br>
+
 Test code has some repetitive functions and has to be optimized.
 
 
