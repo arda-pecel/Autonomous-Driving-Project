@@ -1,3 +1,6 @@
+## V0.4 Update:<br>
+4 engines work together in turns. System does not have a differential.
+
 ## V0.3 Update:<br>
 Cameras communicate with each other for detect objects.
 
