@@ -712,3 +712,27 @@ time.sleep(2)
 motor_speeds = [0, 0, 0, 0]
 set_motor_speeds(motor_speeds)
 pi.stop()
+            
+
+#back wheels turn on half angle of front wheels in turns            
+            
+def update_motor_speeds(steering_angle):
+    """
+    Updates the speed of each motor based on the input steering angle.
+    """
+    # Compute the speed of the outer and inner wheels based on the steering angle
+    outer_speed = max_speed
+    inner_speed = max_speed * (1 - 0.5 * abs(steering_angle))
+
+    # Compute the speed of each motor based on the outer and inner wheel speeds
+    fl_speed = inner_speed
+    fr_speed = outer_speed
+    rl_speed = inner_speed * 0.5
+    rr_speed = outer_speed * 0.5
+
+    # Set the speed of each motor
+    motor_speeds[0] = fl_speed
+    motor_speeds[1] = fr_speed
+    motor_speeds[2] = rl_speed
+    motor_speeds[3] = rr_speed
+
