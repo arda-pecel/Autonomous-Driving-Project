@@ -15,7 +15,9 @@ System can seperate are cars in our or in opposite line.<br>
 
 Red lights detected and vehicle moves due to traffic lights and other cars.<br>
 
-Test code has some repetitive functions and has to be optimized.
+Test code has some repetitive functions and has to be optimized.<br>
+
+Motor control code has not integrated with engine.
 
 
 
