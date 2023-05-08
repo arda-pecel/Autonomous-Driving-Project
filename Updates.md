@@ -12,7 +12,9 @@ System can seperate are cars in our or in opposite line.<br>
 
 Test code still has some repetitive functions.<br>
 
-Red lights detected and vehicle moves due to traffic lights and other cars.
+Red lights detected and vehicle moves due to traffic lights and other cars.<br>
+
+Motor control code has not integrated with engine.
 
 ## V0.1 Update:<br>
 
