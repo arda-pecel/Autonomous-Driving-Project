@@ -736,3 +736,36 @@ def update_motor_speeds(steering_angle):
     motor_speeds[2] = rl_speed
     motor_speeds[3] = rr_speed
 
+            
+#wheels turnings
+  
+    class AutonomousDriving:
+    def __init__(self, front_left_engine, front_right_engine, back_left_engine, back_right_engine):
+        self.front_left_engine = front_left_engine
+        self.front_right_engine = front_right_engine
+        self.back_left_engine = back_left_engine
+        self.back_right_engine = back_right_engine
+        
+        self.speed = 0
+        self.reverse = False
+        
+    def set_speed(self, speed):
+        self.speed = speed
+        
+        if self.speed > 120:
+            self.back_left_engine.set_direction(self.front_left_engine.get_direction() * 0.1)
+            self.back_right_engine.set_direction(self.front_right_engine.get_direction() * 0.1)
+        else:
+            self.back_left_engine.set_direction(self.front_left_engine.get_direction())
+            self.back_right_engine.set_direction(self.front_right_engine.get_direction())
+            
+    def set_reverse(self, reverse):
+        self.reverse = reverse
+        
+        if self.reverse:
+            self.back_left_engine.set_direction(-self.front_left_engine.get_direction() * 0.5)
+            self.back_right_engine.set_direction(-self.front_right_engine.get_direction() * 0.5)
+        else:
+            self.back_left_engine.set_direction(self.front_left_engine.get_direction())
+            self.back_right_engine.set_direction(self.front_right_engine.get_direction())
+
