@@ -722,13 +722,13 @@ def update_motor_speeds(steering_angle):
     """
     # Compute the speed of the outer and inner wheels based on the steering angle
     outer_speed = max_speed
-    inner_speed = max_speed * (1 - 0.5 * abs(steering_angle))
+    inner_speed = max_speed * (1 - 0.9 * abs(steering_angle))
 
     # Compute the speed of each motor based on the outer and inner wheel speeds
     fl_speed = inner_speed
     fr_speed = outer_speed
-    rl_speed = inner_speed * 0.5
-    rr_speed = outer_speed * 0.5
+    rl_speed = inner_speed * 0.1
+    rr_speed = outer_speed * 0.1
 
     # Set the speed of each motor
     motor_speeds[0] = fl_speed
