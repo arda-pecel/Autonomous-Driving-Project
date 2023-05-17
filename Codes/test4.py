@@ -769,3 +769,52 @@ def update_motor_speeds(steering_angle):
             self.back_left_engine.set_direction(self.front_left_engine.get_direction())
             self.back_right_engine.set_direction(self.front_right_engine.get_direction())
 
+            
+# Detect parking cars
+            
+import cv2
+import numpy as np
+
+# Set up video capture device
+cap = cv2.VideoCapture(0)
+
+# Set up object detection parameters
+car_cascade = cv2.CascadeClassifier('haarcascade_car.xml')
+
+# Set up variables to track previous car location and speed
+prev_car_loc = None
+prev_car_time = None
+
+while True:
+    # Capture frame from video feed
+    ret, frame = cap.read()
+
+    # Detect cars in image using Haar cascade classifier
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cars = car_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+
+    # Loop through all detected cars and calculate distance from own car
+    for (x, y, w, h) in cars:
+        # Calculate distance between own car and detected car
+        distance = calculate_distance(x + w / 2, y + h / 2)
+
+        # Check if car is moving or parked
+        if prev_car_loc is not None:
+            time_delta = time.time() - prev_car_time
+            speed = calculate_speed(prev_car_loc, (x + w / 2, y + h / 2), time_delta)
+            if speed < 5 and distance < 10:
+                print("Parked car detected!")
+        prev_car_loc = (x + w / 2, y + h / 2)
+        prev_car_time = time.time()
+
+    # Display video feed with car detection
+    cv2.imshow('frame', frame)
+
+    # Check for quit key press
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release video capture device and close all windows
+cap.release()
+cv2.destroyAllWindows()
+
